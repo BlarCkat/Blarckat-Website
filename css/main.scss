@@ -12,6 +12,20 @@
     src: url('../assets/fonts/Ckat_Bold.ttf');
 }
 
+// _______________-----------------------------
+
+::-webkit-scrollbar{
+    display: none;
+}
+
+::selection{
+    background-color: #2BFD86;
+}
+
+
+
+
+// _______________-----------------------------
 body{
     margin: 0;
     padding: 0;
@@ -33,11 +47,18 @@ footer svg{
 
 .dark-mode svg{
     fill: white;
+
+    ::selection{
+        color: white ;
+    }
 }
 
 
 .light-mode svg{
     fill: black;
+    ::selection{
+        color: black ;
+    }
 }
 // 
 
@@ -65,24 +86,105 @@ footer svg{
 //     }
 // }
 
+nav{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+nav ul li{
+    transition: .5s;
+}
+
+nav ul li:hover{
+    transform: translateX(5%);
+}
+
+
 .sideNav{
     height: 100vh;
     width: 0;
     position: fixed;
     z-index: 1;
     top: 0;
-    left: 0;
-    // padding-top: 20px;
-    background-color: #111;
+    right: -20px;
+    background-color: #2BFD86;
     overflow-x: hidden;
-    transition: .6s;
+    transition: .9s;
 
-    // a{
-    //     padding: 8px 8px 8px 32px;
-    //     text-decoration: none;
-    //     color: #ffffff;
-    // }
+    ul{
+        height: 90%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 
+    a{
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        color: #212121;
+        font-size: 56px;
+        transition: .5s;
+
+    }
+    a:hover{
+        color: #ffffff;
+    }
+
+}
+
+.appbar{
+    position: sticky;
+    top: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 24px;
+}
+
+.menu-button{
+    height: 32px;
+    width: 32px;
+    border-radius: 50%;
+    background-color: #2BFD86;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.menu-button:hover{
+    transform: scale(150%);
+    }
+
+.close-button{
+    position: absolute;
+    right: 24px;
+    svg{
+        height: 48px;
+    }
+}
+
+.logo-header{
+    mix-blend-mode: difference;
+    svg{
+        height: 84px;
+        fill: white;
+        transition: .5s;
+    }
+
+    :hover{
+        fill: #2BFD86;
+    }
+}
+.home-header {
+    img{
+        background-size: contain;
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        // height: 100vh;
+        // width: 100vw;
+    }
 }
 
 header, section{
@@ -101,15 +203,16 @@ header, section{
     color: #151515;
 }
 
-nav{
+.nav-social{
+    display: flex;
+    justify-content: flex-start;
     svg{
-        height: 48px;
-        fill: white;
+        height: 24px;
+        fill: #151515;
     }
 }
 
 header .hero{
-    // background-color: #2BFD86;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -144,7 +247,8 @@ header .hero{
     img{
         object-fit: cover;
         width: 100%;
-        background-size: contain;
+        height: 80vh;
+        background-size: cover;
     }
     .showcase-text-content{
         h2{
@@ -231,6 +335,20 @@ footer{
 
 // Mobile Screens
 @media screen and (max-width: 480px) {
+
+    header .hero{
+        flex-direction: column-reverse;
+
+        h1{
+            font-size: 32px;
+            width: 100vw;
+        }
+
+        .header-social{
+            flex-direction: row;
+        }
+    }
+
     nav{
         flex-direction: column;
         justify-content: center;
@@ -244,7 +362,7 @@ footer{
             height: 100vh;
             
             img{
-                height: 70%;
+                height: 80vh;
             }
             .showcase-text-content{
             p{
