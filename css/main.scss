@@ -39,7 +39,21 @@ p{
     font-size: 32px;
 }
 
-// svg
+
+// //////////////////////////////////////////////
+// Light and Dark Themes
+.dark-mode{
+    background-color: #151515;
+    color: #ffffff;
+    transition: .5s ease-in-out;
+}
+
+.light-mode{
+    background-color: #f3f3f3;
+    color: #151515;
+    transition: .5s ease-in-out;
+}
+
 footer svg{
     width: 24px;
     height: 24px;
@@ -47,67 +61,59 @@ footer svg{
 
 .dark-mode svg{
     fill: white;
-
     ::selection{
-        color: white ;
+        color: white;
     }
 }
-
 
 .light-mode svg{
     fill: black;
     ::selection{
-        color: black ;
+        color: black;
     }
 }
-// 
+
+// //////////////////////////////////////////////
 
 .content-padding{
     padding: 5vw 10vw;
 }
 
-// nav{
-//     display: flex;
-//     align-items: center;
-//     justify-content: space-between;
-//     height: 10vh;
-//     padding: 0 5vw;
-//     ul{
-//         display: flex;
-//         flex-direction: column;
-//         width: 40%;
-//         padding: 0;
-//         justify-content: space-between;
 
-//         li a{
-//             font-size: 20px;
-//             color: #ffffff;
-//         }
-//     }
-// }
 
-nav{
-    display: flex;
-    width: 100%;
-    flex-direction: column;
+
+// //////////////////////////////////////////////
+// Side Navigation
+
+.light-mode #nav-overlay{
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    background-color: rgba(13, 13, 13, 0.506);
+    overflow-x: hidden;
+    transition: .9s;
 }
 
-nav ul li{
-    transition: .5s;
+.dark-mode #nav-overlay{
+    height: 100vh;
+    width: 0;
+    position: fixed;
+    z-index: 3;
+    top: 0;
+    background-color: rgba(218, 218, 218, 0.458);
+    overflow-x: hidden;
+    transition: .9s;
 }
-
-nav ul li:hover{
-    transform: translateX(5%);
-}
-
-
 .sideNav{
     height: 100vh;
     width: 0;
     position: fixed;
-    z-index: 1;
+    visibility: hidden;
+    z-index: 5;
     top: 0;
-    right: -20px;
+    right: 0;
     background-color: #2BFD86;
     overflow-x: hidden;
     transition: .9s;
@@ -131,8 +137,51 @@ nav ul li:hover{
         color: #ffffff;
     }
 
+    .top-row{
+        position: relative;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-end;
+        align-items: center;
+        margin: 20px;
+        gap: 10px;
+
+        div{
+            display: flex;
+            justify-content: center;
+            align-content: center;
+            padding: 10px;
+            background-color: #51515151;
+            border-radius: 50%;
+        }
+
+        .navClose svg{
+            fill: #151515;
+        }
+    }
 }
 
+nav{
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+nav ul li{
+    transition: .5s;
+}
+
+nav ul li:hover{
+    transform: translateX(5%);
+}
+// //////////////////////////////////////////////
+
+
+
+
+
+// //////////////////////////////////////////////
+// Top App Bar
 .appbar{
     position: sticky;
     top: 0;
@@ -155,26 +204,20 @@ nav ul li:hover{
     transform: scale(150%);
     }
 
-.close-button{
-    position: absolute;
-    right: 24px;
-    svg{
-        height: 48px;
-    }
-}
 
 .logo-header{
     mix-blend-mode: difference;
     svg{
         height: 84px;
-        fill: white;
         transition: .5s;
     }
-
     :hover{
         fill: #2BFD86;
     }
 }
+// //////////////////////////////////////////////
+
+
 
 .home-header {
     img{
@@ -183,8 +226,6 @@ nav ul li:hover{
         z-index: -2;
         top: 0;
         left: 0;
-        // height: 100vh;
-        // width: 100vw;
     }
 }
 
@@ -193,16 +234,6 @@ header, section{
     height: fit-content;
     min-height: 100vh;
 } 
-
-.dark-mode{
-    background-color: #151515;
-    color: #ffffff;
-}
- 
-.light-mode{
-    background-color: #ffffff;
-    color: #151515;
-}
 
 .nav-social{
     display: flex;
@@ -231,8 +262,6 @@ header .hero{
         }
     }
 }
-
-
 
 // Work Section, Home Page
 .section-work{
