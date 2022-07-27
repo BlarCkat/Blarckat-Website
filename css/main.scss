@@ -20,6 +20,7 @@
 
 ::selection{
     background-color: #2BFD86;
+    color: #151515;
 }
 
 
@@ -33,6 +34,11 @@ body{
     display: flex;
     flex-direction: column;
     gap: 10vh;
+}
+
+.smoothScroll{
+    height: fit-content;
+    will-change: transform;
 }
 
 p{
@@ -85,26 +91,22 @@ footer svg{
 // //////////////////////////////////////////////
 // Side Navigation
 
-.light-mode #nav-overlay{
+#nav-overlay{
     height: 100vh;
     width: 0;
     position: fixed;
     z-index: 3;
     top: 0;
-    background-color: rgba(13, 13, 13, 0.506);
     overflow-x: hidden;
     transition: .9s;
 }
 
+.light-mode #nav-overlay{
+    background-color: rgba(13, 13, 13, 0.506);
+}
+
 .dark-mode #nav-overlay{
-    height: 100vh;
-    width: 0;
-    position: fixed;
-    z-index: 3;
-    top: 0;
     background-color: rgba(218, 218, 218, 0.458);
-    overflow-x: hidden;
-    transition: .9s;
 }
 .sideNav{
     height: 100vh;
@@ -153,6 +155,7 @@ footer svg{
             padding: 10px;
             background-color: #51515151;
             border-radius: 50%;
+            cursor: pointer;
         }
 
         .navClose svg{

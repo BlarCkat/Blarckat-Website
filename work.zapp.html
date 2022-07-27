@@ -11,7 +11,8 @@
     <link rel="icon" href="./favicon.png" type="image/x-icon">
     <title>John Aïmond Banson • Zapp</title>
 </head>
-<body class="dark-mode">
+<body>
+  <div onclick="closeNav()" id="nav-overlay"></div>
   <nav id="sideNav" class="sideNav">
     <div class="top-row">
       <div id="themeToggle">
@@ -91,7 +92,6 @@
         </svg>
       </a>
       <a onclick="openNav()" class="menu-button">
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg> -->
       </a>
     </div>
     <header class="content-padding home-header">
@@ -99,7 +99,7 @@
         </div>
     </header>
     <div class="work-hero-img hero-image-zapp">
-        <img src="./assets/zapp/zapb" alt="zapp_logo">
+        <img src="./assets/zapp/zapp_end.png" alt="zapp_logo">
     </div>
 
     <section class="case-intro content-padding">
