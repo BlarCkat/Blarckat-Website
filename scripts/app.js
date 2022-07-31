@@ -4,9 +4,23 @@ const navOverlay = document.getElementById('nav-overlay');
 
 function openNav(){
     // show navbar, make it fit 50% of the screen width, and make the overlay fit 100%, 
+    // Responsiveness
     sideNav.style.visibility = 'visible';
-    sideNav.style.width = '50vw';
     navOverlay.style.width = '100vw';
+    sideNav.style.width = '100vw';
+    
+    if (window.innerWidth < 400) {
+        sideNav.style.width = '100vw';
+    }
+    else if (window.innerWidth < 900) {
+        
+        sideNav.style.width = '80vw';
+    }
+    else{
+        sideNav.style.width = '50vw';
+    }
+    
+    
 }
 function closeNav(){
     // hide side navigation, reset everything to 0.
@@ -14,6 +28,7 @@ function closeNav(){
     sideNav.style.width = '0';
     navOverlay.style.width = '0';
 }
+
 // ///////////////////////////////////////////////////
 
 // Light and Dark Mode
@@ -54,38 +69,36 @@ darkModeToggle.addEventListener('click', ()=> {
 
 
 // Smooth Scrolling
-// let current = 0;
-// let target = 0;
-// let ease = 0.15;
+let current = 0;
+let target = 0;
+let ease = 0.05;
 
-// let windowWidth;
-// let containerHeight;
-// let imageHeight;
-// let skewDifference;
+let smoothScrollAnimation = document.querySelector('.smoothScroll');
 
-// let smoothScrollContainer = document.querySelector('.smoothScroll');
+function lerp(start, end, t) {
+    return start * (1 - t) + end * t;
+}
 
-// function lerp(animationStart, animationEnd, t) {
-//     return animationStart * (1 - t) + animationEnd * t;
-// }
+function setupScrollAnim() {
+    windowWidth = window.innerWidth;
+    pageHeight = smoothScrollAnimation.getBoundingClientRect().height;
 
-// function setTransform(el, transform) {
-//     el.style.transform = transform;
-// }
+    document.body.style.height = `${pageHeight}px`;
+    smoothScroll();
+}
 
-// function setupSmoothScroll() {
-//     windowWidth =  window.innerWidth;
-//     containerHeight =  smoothScrollContainer.getBoundingClientRect().height;
-//     document.body.style.height = `${containerHeight}px`;
-// }
+function setTransform(el, transform) {
+    el.style.transform = transform;
+}
 
-// function smoothScrollAnimation() {
-//     current = lerp(current, target, ease);
-//     current = parseFloat(current.toFixed(2));
-//     target = window.scrollY
+function smoothScroll() {
+    current = lerp(current, target, ease);
+    current = parseFloat(current.toFixed(2));
+    target = window.scrollY
 
-//     setTransform(smoothScrollContainer, `translateY(${-current}px)`);
-//     requestAnimationFrame(smoothScrollAnimation);
-// }
+    setTransform(smoothScrollAnimation, `translateY(${-current}px)`);
+    requestAnimationFrame(smoothScroll);
+}
 
-// setupSmoothScroll()
+setupScrollAnim()
+
