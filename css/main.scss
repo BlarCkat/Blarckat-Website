@@ -285,6 +285,10 @@ header, section{
     }
 }
 
+.half-sided-container{
+    width: 70%;
+}
+
 header .hero{
     display: flex;
     flex-direction: row;
@@ -369,7 +373,6 @@ header .hero{
 }
 
 
-
 // //////////////////////////////////////////////////////
 // Case Studies
 .case-study-image-container{
@@ -397,6 +400,23 @@ header .hero{
     gap: 24px;
     width: 50%;
     height: 80vh;
+}
+
+.compact-list {
+    display: flex;
+    flex-direction: column;
+    // gap: 10px;
+    li{
+        border: none;
+        padding: 16px;
+        border-bottom: .5px solid grey;
+    }
+    p{
+        font-size: 16px;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        color: grey;
+    }
 }
 
 
@@ -475,6 +495,21 @@ footer{
 
         }
         }
+    }
+
+
+
+    .compact-list{
+        p{
+            font-size: 20px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: grey;
+        }
+    }
+
+    .half-sided-container{
+        width: 100%;
     }
 
 
